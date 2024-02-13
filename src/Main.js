@@ -13,11 +13,11 @@ function Main() {
       <App>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="courses" element={<CourseListPage />} />
-          <Route
-            path="courses/react-frontend-development"
-            element={<CoursePage />}
-          />
+          <Route path="courses">
+            <Route index element={<CourseListPage />} />
+            <Route path="react-frontend-development" element={<CoursePage />} />
+          </Route>
+
           <Route path="wishlist" element={<WishlistPage />} />
           <Route
             path="/questions"
