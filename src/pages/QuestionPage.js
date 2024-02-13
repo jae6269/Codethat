@@ -7,9 +7,15 @@ import DateText from '../components/DateText';
 import Lined from '../components/Lined';
 import Warn from '../components/Warn';
 import styles from './QuestionPage.module.css';
+import { Navigate, useParams } from 'react-router-dom';
 
 function QuestionPage() {
-  const question = getQuestionById('616825');
+  const { courseSlug } = useParams();
+  const question = getQuestionById(courseSlug);
+
+  if (!question) {
+    return <Navigate to="/questions"></Navigate>;
+  }
 
   return (
     <>
